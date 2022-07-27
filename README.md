@@ -5,4 +5,6 @@ Neste projeto usamos uma nova stack e a implementação de uma nova arquitetura 
 ## Stacks usadas 
  
 - Flask 
-- Flas-pydantic-spec 
+- Flas-pydantic-spec
+- TinyDB
+-  pydantic
