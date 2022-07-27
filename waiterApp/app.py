@@ -10,46 +10,46 @@ from tinydb import TinyDB, Query
 from tinydb.storages import MemoryStorage
 
 server = Flask(__name__)
-spec = FlaskPydanticSpec('flask', title='waiterApi')
+spec = FlaskPydanticSpec('flask', title='Waiter Api')
 spec.register(server)
-database = TinyDB('storage=MemoryStorage')
+database = TinyDB(storage=MemoryStorage)
 c = count()
 
 class QueryProduto(BaseModel):
     id: Optional[int]
-    produto: Optional[str]
-    valor: Optional [int]
+    Produto: Optional[str]
+    valor: Optional[int]
+
 
 class Produto(BaseModel):
-    id:  Optional[int] = Field(default_factory=lambda: next(c))
-    produto: str
+    id: Optional[int] = Field(default_factory=lambda: next(c))
+    Produto: str
     valor: int
 
+
 class Produtos(BaseModel):
-    produto: list[Produto]
+    Produto: list[Produto]
     count: int
 
-
-@server.get('/produtos') # rota , endpoint ... rescurso 
+@server.get('/produtos')  # Rota, endpoint, recurso ...
 @spec.validate(
     query=QueryProduto,
     resp=Response(HTTP_200=Produtos)
-    
-) #Criando schemas na documentação
+)
 def buscar_produtos():
     '''Busca produtos no banco de dados'''  
     query = request.context.query.dict(exclude_none=True)
     todos_os_produtos = database.search(
         Query().fragment(query)
-)  
+    )
     return jsonify(
         Produtos(
-           produtos=todos_os_produtos,
+            pessoas=todos_os_produtos,
             count=len(todos_os_produtos)
         ).dict()
     )
 
-@server.get('/produto/<int:id>')
+@server.get('/produtos/<int:id>')
 @spec.validate(resp=Response(HTTP_200=Produto))
 def buscar_produto(id):
     '''Retorna todas as produtos na base de dados.'''
@@ -65,7 +65,7 @@ def buscar_produto(id):
 
 def inserir_produto():
     '''insere um produto no banco de dados'''
-    body=request.contex.body.dict()
+    body = request.context.body.dict()
     database.insert(body)
     return body
 
