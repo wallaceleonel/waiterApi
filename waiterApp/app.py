@@ -55,7 +55,7 @@ def buscar_produtos():
 @server.get('/produtos/<int:id>')
 @spec.validate(resp=Response(HTTP_200=Produto))
 def buscar_produto(id):
-    """Retorna todos os Produtos da base de dados."""
+    """Retorna   Produtos cujo Id foi informado  da base de dados."""
     try:
         produto = database.search(Query().id == id)[0]
     except IndexError:
