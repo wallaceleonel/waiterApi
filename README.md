@@ -8,3 +8,6 @@ Neste projeto usamos uma nova stack e a implementação de uma nova arquitetura 
 - Flas-pydantic-spec
 - TinyDB
 -  pydantic
+
+ <img src= "waiterApp\media\swagger.PNG" align="center">
+ <img src= "waiterApp\media\schemas.PNG" align="center">
