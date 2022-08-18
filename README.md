@@ -1,6 +1,6 @@
 # Desenvolvendo  uma api seguindo os padrões RESTful
 
-Neste projeto usamos uma nova stack e a implementação de uma nova arquitetura segundo os pradrões Rest para criação de api´s
+Neste projeto usamos uma nova stack e a implementação de uma  arquitetura segundo os pradrões Rest para criação de api´s
 
 ## Stacks usadas 
 
